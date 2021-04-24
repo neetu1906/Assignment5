@@ -1,0 +1,76 @@
+<div class="container">
+  <!-- <form class="text-center" name="regForm" novalidate> -->
+    <fieldset>
+        <div class="text-center"><h2>Registration<h2></div>
+        <form name="regForm" novalidate>
+          <label for="firstname" class="col-sm-3 control-label">Firstname: </label>
+          <div class="col-sm-6">
+          <input  type="text" class="form-control" name="firstname" ng-model="signUpCtrl.user.firstname"
+          placeholder="pick a firstname"
+          required>
+          </div>
+          <span ng-if="regForm.firstname.$error.required && regForm.firstname.$touched">
+            Firstname is required
+          </span>
+          <br><br>
+
+          <label for="lastname" class="col-sm-3 control-label">Lastname: </label>
+          <div class="col-sm-6">
+          <input type="text" class="form-control" name="lastname" placeholder="pick a lastname"
+          ng-model="signUpCtrl.user.lastname"
+          required>
+          </div>
+          <span ng-if="regForm.lastname.$error.required && regForm.lastname.$touched">
+            Lastname is required
+          </span>
+          <br><br>
+
+          <label for="email" class="col-sm-3 control-label">Email: </label>
+          <div class="col-sm-6">
+          <input type="email" class="form-control" name="email" placeholder="please enter email"
+          ng-model="signUpCtrl.user.email"
+          required>
+          </div>
+          <span
+          ng-if="regForm.email.$invalid && regForm.email.$touched">Must be a valid email address: handle@domain format
+         </span>
+          <br><br>
+
+          <label for="phone" class="col-sm-3 control-label">Phone: </label>
+          <div class="col-sm-6">
+          <input type="phone" class="form-control" name="phone" placeholder="phone ###-###-####"
+          ng-model="signUpCtrl.user.phone"
+          pattern="(\d{3}-\d{3}-\d{4})">
+          </div>
+          <span
+          ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+          Phone must be in the format ###-###-####.
+          </span>
+          <br><br>
+
+          <label for="menuNumber" class="col-sm-3 control-label">Menu #: </label>
+          <div class="col-sm-6">
+          <input type="menuNumber" class="form-control" name="menuNumber"
+          ng-model="signUpCtrl.user.menuNumber"
+          </div>
+          <span
+          ng-if="!signUpCtrl.isValid && regForm.menuNumber.$touched">
+          No such menu number exists.
+          </span>
+
+          <br><br>
+
+          <div class="col-sm-6">
+          <button class="btn btn-primary col-sm-offset-3"
+          ng-disabled="regForm.$invalid"
+          ng-click="signUpCtrl.validateMenuNumber()">Submit
+          </button>
+          </div>
+
+          <br>
+          <div ng-if="signUpCtrl.saved"><h3>Your information has been saved.</h3></div>
+
+        </form>
+    </fieldset>
+
+</div>

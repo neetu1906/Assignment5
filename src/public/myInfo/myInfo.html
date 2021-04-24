@@ -1,0 +1,30 @@
+<div class="container">
+  <div ng-if="myInfoCtrl.userPref === undefined"><h3>Not Signed Up Yet.   <a ui-sref="public.signUp">Sign up Now!</a></h3></div>
+  <!-- <fieldset class="text-center"> -->
+        <div class="text-center">
+          <table id="user-info-table" ng-if="myInfoCtrl.userPref != undefined" class="table table-borderless">
+            <tr><td colspan="2"><div class="text-center"><h2>My Information<h2></div></td></tr>
+            <tr>
+              <td>First name: </td>
+              <td>{{myInfoCtrl.userPref.firstname}}</td>
+            </tr>
+            <tr>
+              <td>Last name: </td>
+              <td>{{myInfoCtrl.userPref.lastname}}</td>
+            </tr>
+            <tr>
+              <td>Email: </td>
+              <td>{{myInfoCtrl.userPref.email}}</td>
+            </tr>
+            <tr>
+              <td>Phone: </td>
+              <td>{{myInfoCtrl.userPref.phone}}</td>
+            </tr>
+            <tr>
+              <td>Favourite: {{myInfoCtrl.userPref.menuNumber}}</td>
+              <td><menu-item id="user-info-menu-item" menu-item="myInfoCtrl.userPref.favouriteMenuItem"></menu-item></td>
+            </tr>
+          </table>
+          </div>
+    <!-- </fieldset -->
+</div>
